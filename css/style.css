@@ -41,6 +41,36 @@ html {
   scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
 }
 
+/* ---- Image copy protection ---- */
+img {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
+
+.protect-toast {
+  position: fixed;
+  z-index: 9999;
+  padding: 8px 18px;
+  background: rgba(0, 0, 0, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-cn);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 0);
+  transition: opacity 0.25s ease;
+  white-space: nowrap;
+}
+
+.protect-toast.is-visible {
+  opacity: 1;
+}
+
 :root {
   --bg-primary: #0a0a0f;
   --bg-secondary: #101018;

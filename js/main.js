@@ -349,3 +349,66 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('touchmove', onMove, { passive: false });
   document.addEventListener('touchend', onUp);
 })();
+
+// =============================================
+// Image Protection
+// =============================================
+(function() {
+  'use strict';
+
+  // Toast message element
+  var toast = document.createElement('div');
+  toast.className = 'protect-toast';
+  toast.textContent = '作品保护中';
+  document.body.appendChild(toast);
+
+  var timer = null;
+
+  function showToast(e) {
+    toast.classList.add('is-visible');
+    var x = e.clientX ?? (e.touches && e.touches[0].clientX);
+    var y = e.clientY ?? (e.touches && e.touches[0].clientY);
+    if (typeof x === 'number' && typeof y === 'number') {
+      toast.style.left = x + 'px';
+      toast.style.top  = (y - 40) + 'px';
+    }
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      toast.classList.remove('is-visible');
+    }, 1800);
+  }
+
+  // Prevent right-click on images
+  document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') {
+      e.preventDefault();
+      showToast(e);
+    }
+  });
+
+  // Prevent long-press save on mobile
+  document.addEventListener('touchstart', function(e) {
+    if (e.target.tagName === 'IMG' && e.touches.length === 1) {
+      var target = e.target;
+      var longPressTimer = setTimeout(function() {
+        var ev = { clientX: e.touches[0].clientX, clientY: e.touches[0].clientY };
+        showToast(ev);
+        // Prevent the native context menu
+        target.style.webkitTouchCallout = 'none';
+      }, 600);
+      target.addEventListener('touchend', function() {
+        clearTimeout(longPressTimer);
+      }, { once: true });
+      target.addEventListener('touchmove', function() {
+        clearTimeout(longPressTimer);
+      }, { once: true });
+    }
+  }, { passive: true });
+
+  // Prevent drag on images
+  document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG') {
+      e.preventDefault();
+    }
+  });
+})();
