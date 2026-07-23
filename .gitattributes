@@ -1,0 +1,21 @@
+# Auto-detect text files; store LF in repo, convert to CRLF on Windows checkout
+* text=auto
+
+# Source code & markup: always LF in repo
+*.html text eol=lf
+*.css  text eol=lf
+*.js   text eol=lf
+*.svg  text eol=lf
+*.json text eol=lf
+*.md   text eol=lf
+
+# Images & fonts: never convert
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.gif  binary
+*.ico  binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.ttf  binary

@@ -1,102 +1,235 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>轩心华 — UI/UX 设计作品集</title>
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;background:#f5f5f5;color:#222;-webkit-font-smoothing:antialiased}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(245,245,245,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #e0e0e0;height:52px}
-.nav-logo{font-weight:700;font-size:.85rem;letter-spacing:.03em;white-space:nowrap;cursor:pointer;user-select:none}
-.nav-links{display:flex;gap:0;height:52px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.nav-links::-webkit-scrollbar{display:none}
-.nav-links a{display:flex;align-items:center;padding:0 1rem;font-size:.78rem;color:#888;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s;text-decoration:none;cursor:pointer;flex-shrink:0}
-.nav-links a:hover,.nav-links a.active{color:#222;border-bottom-color:#222}
-.work-image{width:100%;display:block;background:#eee;line-height:0}
-.work-image img{width:100%;height:auto;display:block}
-.header-spacer{height:52px}
-@media(max-width:768px){
-nav{padding:0 .5rem}
-.nav-links a{padding:0 .6rem;font-size:.72rem}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>轩心华 · Design Portfolio</title>
+  <meta name="description" content="轩心华的作品集 · Design Portfolio" />
+
+  <!-- Preload critical above-fold assets -->
+  <link rel="preload" as="image" href="assets/bg.jpg" />
+  <link rel="preload" as="image" href="assets/bg1.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Inline override for max-width -->
+  <style>
+    section { background: #000000 !important; }
+    .section-project,
+    .section-resume {
+      width: 100% !important;
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+      display: block !important;
+    }
+    .project-container {
+      width: 100% !important;
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+    }
+    .biaoqing-anchor,
+    .wenwuanfang-anchor,
+    .jianguanpingtai-anchor {
+      width: 100% !important;
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+    }
+    html, body { background: #000000 !important; }
+  </style>
 </head>
 <body>
-<nav id="navbar">
-<span class="nav-logo" id="logoBtn">轩心华UI/UX作品集</span>
-<div class="nav-links" id="navLinks">
-<a class="active">首页</a>
-<a>Behavior工具</a>
-<a>TNC工具</a>
-<a>博问AI</a>
-<a>预防性保护系统</a>
-<a>文物安全监管平台</a>
-</div>
-</nav>
-<div class="header-spacer"></div>
 
-<div class="work-image" data-nav="首页"><img src="images/0.jpg" alt="" loading="lazy"></div>
-<div class="work-image" data-nav="Behavior工具"><img src="images/1.1.jpg" alt="" loading="lazy"></div>
-<div class="work-image"><img src="images/1.2.jpg" alt="" loading="lazy"></div>
-<div class="work-image" data-nav="TNC工具"><img src="images/2.1.1.jpg" alt="" loading="lazy"></div>
-<div class="work-image"><img src="images/2.1.2.jpg" alt="" loading="lazy"></div>
-<div class="work-image"><img src="images/2.2.jpg" alt="" loading="lazy"></div>
-<div class="work-image" data-nav="博问AI"><img src="images/3.1.1.jpg" alt="" loading="lazy"></div>
-<div class="work-image"><img src="images/3.1.2.jpg" alt="" loading="lazy"></div>
-<div class="work-image"><img src="images/3.2.jpg" alt="" loading="lazy"></div>
-<div class="work-image" data-nav="预防性保护系统"><img src="images/4.jpg" alt="" loading="lazy"></div>
-<div class="work-image" data-nav="文物安全监管平台"><img src="images/5.jpg" alt="" loading="lazy"></div>
+  <!-- ===== Navigation ===== -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">XXH</a>
+      <ul class="nav-links">
+        <li class="nav-item-dropdown">
+          <a href="#projects" class="nav-link">作品</a>
+          <ul class="nav-dropdown">
+            <li><a href="#projects">Behavior</a></li>
+            <li><a href="#tnc">TNC</a></li>
+            <li><a href="#bowenAI">博问AI</a></li>
+            <li><a href="#wenwuanfang">安防平台</a></li>
+            <li><a href="#jianguanpingtai">文物监管平台</a></li>
+          </ul>
+        </li>
+        <li><a href="#about" class="nav-link">关于</a></li>
+        <li><a href="#contact" class="nav-link">联系</a></li>
+      </ul>
+    </div>
+  </nav>
 
-<script>
-var links = document.querySelectorAll('.nav-links a');
-var navEl = document.getElementById('navbar');
-var navH = 52;
-var navNames = ['首页','Behavior工具','TNC工具','博问AI','预防性保护系统','文物安全监管平台'];
+  <!-- ===== Hero Section ===== -->
+  <section class="hero" id="hero">
 
-links.forEach(function(link){
-link.addEventListener('click', function(){
-var name = this.textContent.trim();
-var targets = document.querySelectorAll('[data-nav="'+name+'"]');
-if(targets.length === 0) return;
-var target = targets[0];
-var top = target.getBoundingClientRect().top + window.pageYOffset - navH;
-window.scrollTo({top: top, behavior: 'smooth'});
-links.forEach(function(l){l.classList.remove('active')});
-this.classList.add('active');
-});
-});
+    <!-- Background image -->
+    <div class="hero-bg"></div>
 
-var observer = new IntersectionObserver(function(entries){
-entries.forEach(function(e){
-if(e.isIntersecting){
-var nav = e.target.getAttribute('data-nav');
-if(nav){
-links.forEach(function(l){l.classList.remove('active')});
-links.forEach(function(l){
-if(l.textContent.trim() === nav) l.classList.add('active');
-});
-}
-}
-});
-}, {rootMargin: '-'+navH+'px 0px -60% 0px'});
+    <!-- WebGL Canvas for Side Rays -->
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
 
-document.querySelectorAll('[data-nav]').forEach(function(el){observer.observe(el)});
+    <!-- Ambient glow overlay -->
+    <div class="hero-glow"></div>
 
-document.getElementById('logoBtn').addEventListener('click', function(){
-window.scrollTo({top:0,behavior:'smooth'});
-links.forEach(function(l){l.classList.remove('active')});
-links[0].classList.add('active');
-});
+    <!-- SVG text layer (above beam layer) -->
+    <img class="hero-svg-text" loading="eager" fetchpriority="high" src="assets/bg1.svg" alt="轩心华 · Design Portfolio" />
 
-var lastY = 0;
-window.addEventListener('scroll', function(){
-var y = window.pageYOffset;
-navEl.classList.toggle('hidden', y > lastY && y > 80);
-lastY = y;
-}, {passive:true});
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+      <span class="scroll-text">滚动探索</span>
+      <svg class="scroll-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M10 4v12M10 16l-5-5M10 16l5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
 
-if(window.location.hash) history.replaceState(null,'',window.location.pathname);
-</script>
+  </section>
+  <!-- ===== Personal Resume ===== -->
+  <section class="section section-resume" id="about">
+    <img class="resume-image" loading="eager" fetchpriority="high" src="assets/jianjie.jpg" alt="个人简历" />
+  </section>
+
+  <!-- ===== Project: Behavior ===== -->
+  <section class="section section-alt section-project" id="projects">
+    <div class="project-container">
+      <div class="project-gallery">
+        <img loading="lazy" decoding="async" src="assets/behavior/1.svg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/behavior/2.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/behavior/3.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/behavior/4.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/behavior/5.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/behavior/6.jpg" alt="" />
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== Project: TNC ===== -->
+  <section class="section section-alt section-project" id="tnc">
+    <div class="project-container">
+      <div class="project-gallery">
+        <img loading="lazy" decoding="async" src="assets/TNC/1.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/TNC/2.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/TNC/3.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/TNC/4.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/TNC/5.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/TNC/6.jpg" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Project: BowenAI ===== -->
+  <section class="section section-alt section-project" id="bowenAI">
+    <div class="project-container">
+      <div class="project-gallery">
+        <img loading="lazy" decoding="async" src="assets/bowenAI/1.svg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/bowenAI/2.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/bowenAI/3.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/bowenAI/4.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/bowenAI/5.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/bowenAI/6.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/bowenAI/7.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/bowenAI/8.jpg" alt="" />
+        <div class="biaoqing-anchor">
+          <img loading="lazy" decoding="async" src="assets/bowenAI/9.jpg" alt="" />
+          <div class="biaoqing-gif-row">
+            <img loading="lazy" decoding="async" src="assets/bowenAI/biaoqing/1chushi.gif" alt="初始" />
+            <img loading="lazy" decoding="async" src="assets/bowenAI/biaoqing/2danglu.gif" alt="当路" />
+            <img loading="lazy" decoding="async" src="assets/bowenAI/biaoqing/3shouting.gif" alt="手停" />
+            <img loading="lazy" decoding="async" src="assets/bowenAI/biaoqing/4sikao.gif" alt="思考" />
+            <img loading="lazy" decoding="async" src="assets/bowenAI/biaoqing/5huida.gif" alt="回答" />
+            <img loading="lazy" decoding="async" src="assets/bowenAI/biaoqing/6xingfen.gif" alt="兴奋" />
+            <img loading="lazy" decoding="async" src="assets/bowenAI/biaoqing/7quedian.gif" alt="缺点" />
+          </div>
+        </div>
+        <img loading="lazy" decoding="async" src="assets/bowenAI/10.jpg" alt="" />
+      </div>
+    </div>
+  </section>
+  <!-- ===== Project: WenWuanFang ===== -->
+  <section class="section section-alt section-project" id="wenwuanfang">
+    <div class="project-container">
+      <div class="project-gallery">
+        <img loading="lazy" decoding="async" src="assets/wenwuanfang/1.svg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/wenwuanfang/2.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/wenwuanfang/3.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/wenwuanfang/4.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/wenwuanfang/5.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/wenwuanfang/6.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/wenwuanfang/7.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/wenwuanfang/8.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/wenwuanfang/9.jpg" alt="" />
+        <div class="wenwuanfang-anchor">
+          <img loading="lazy" decoding="async" src="assets/wenwuanfang/10.jpg" alt="" />
+          <div class="wenwuanfang-gif">
+            <img loading="lazy" decoding="async" src="assets/wenwuanfang/10.gif" alt="" />
+          </div>
+        </div>
+        <img loading="lazy" decoding="async" src="assets/wenwuanfang/11.jpg" alt="" />
+        <div class="comparison-inner">
+          <div class="comparison-wrapper" id="comparisonWrapper">
+            <div class="comparison-bottom">
+              <img loading="lazy" decoding="async" src="assets/wenwuanfang/qian.jpg" alt="前" />
+            </div>
+            <div class="comparison-top" id="comparisonTop">
+              <img loading="lazy" decoding="async" src="assets/wenwuanfang/shen.jpg" alt="深" />
+            </div>
+            <div class="comparison-handle" id="comparisonHandle">
+              <div class="comparison-line"></div>
+              <div class="comparison-thumb">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M8 4L4 10L8 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 4L16 10L12 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <p class="comparison-label">← 深 · 浅 →</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Project: JianguanPingTai ===== -->
+  <section class="section section-alt section-project" id="jianguanpingtai">
+    <div class="project-container">
+      <div class="project-gallery">
+        <img loading="lazy" decoding="async" src="assets/jianguanpingtai/1.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/jianguanpingtai/2.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/jianguanpingtai/3.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/jianguanpingtai/4.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/jianguanpingtai/5.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/jianguanpingtai/6.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/jianguanpingtai/7.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/jianguanpingtai/8.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/jianguanpingtai/9.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/jianguanpingtai/10.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/jianguanpingtai/11.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/jianguanpingtai/12.jpg" alt="" />
+        <div class="jianguanpingtai-anchor">
+          <img loading="lazy" decoding="async" src="assets/jianguanpingtai/13.jpg" alt="" />
+          <div class="jianguanpingtai-gif">
+            <img loading="lazy" decoding="async" src="assets/jianguanpingtai/tubiao.gif" alt="" />
+          </div>
+        </div>
+        <img loading="lazy" decoding="async" src="assets/jianguanpingtai/14.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/jianguanpingtai/15.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/jianguanpingtai/16.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/jianguanpingtai/17.jpg" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-resume" id="contact">
+    <img class="resume-image" src="assets/jiewei.jpg" loading="lazy" alt="结尾" />
+  </section>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
 </body>
 </html>
